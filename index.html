@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Filter</title>
+</head>
+<body>
+    <form action="/filter" method="post">
+        <label for="writing">writing:</label>
+        <input type="text" id="writing" name="writing"><br><br>
+
+        <label for="unit">unit:</label>
+        <input type="text" id="unit" name="unit"><br><br>
+
+        <label for="expert">expert:</label>
+        <input type="text" id="expert" name="expert"><br><br>
+
+        <label for="master">master:</label>
+        <input type="text" id="master" name="master"><br><br>
+
+        <label for="range">range:</label>
+        <input type="text" id="range" name="range"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+    {% if result %}
+    <h2>Result:</h2>
+    <ul>
+        {% for key, value in result.items() %}
+        <li><strong>{{ key }}:</strong> {{ value }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
